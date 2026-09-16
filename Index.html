@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌻 Para ti</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#111827, #312e81);
+    font-family: Arial, sans-serif;
+  }
+
+  .contenedor {
+    text-align: center;
+    color: white;
+    z-index: 2;
+  }
+
+  h1 {
+    font-size: 55px;
+    margin: 0 0 20px;
+    animation: latido 1.2s infinite;
+  }
+
+  .flores {
+    font-size: 75px;
+    animation: mover 3s infinite ease-in-out;
+  }
+
+  p {
+    font-size: 22px;
+  }
+
+  @keyframes latido {
+    50% { transform: scale(1.12); }
+  }
+
+  @keyframes mover {
+    50% { transform: translateY(-12px); }
+  }
+
+  .corazon {
+    position: absolute;
+    color: #facc15;
+    font-size: 25px;
+    animation: subir 5s linear infinite;
+  }
+
+  @keyframes subir {
+    from {
+      transform: translateY(100vh);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-10vh);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+  <div class="flores">🌻🌻🌻</div>
+  <h1>Te amo ❤️</h1>
+  <p>Estas flores amarillas son para ti 💛</p>
+</div>
+
+<script>
+  function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.className = "corazon";
+    corazon.innerHTML = "💛";
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.animationDuration = (3 + Math.random() * 4) + "s";
+    document.body.appendChild(corazon);
+
+    setTimeout(() => corazon.remove(), 7000);
+  }
+
+  setInterval(crearCorazon, 400);
+</script>
+
+</body>
+</html>
